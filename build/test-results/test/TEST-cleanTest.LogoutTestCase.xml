@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cleanTest.LogoutTestCase" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-08T17:17:14" hostname="Ditzel" time="20.83">
+  <properties/>
+  <testcase name="logout()" classname="cleanTest.LogoutTestCase" time="20.83"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 62919
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+[1667927843.240][WARNING]: This version of ChromeDriver has not been tested with Chrome version 107.
+Nov 08, 2022 2:17:24 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+Nov 08, 2022 2:17:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 107, so returning the closest version found: 106
+Nov 08, 2022 2:17:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 107 of 106
+]]></system-err>
+</testsuite>
