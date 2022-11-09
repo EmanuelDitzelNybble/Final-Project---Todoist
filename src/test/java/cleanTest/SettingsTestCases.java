@@ -2,6 +2,7 @@ package cleanTest;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import singletonSession.Session;
 
 public class SettingsTestCases extends TestBaseTodoly {
     String name = "Emanuel";
@@ -35,28 +36,29 @@ public class SettingsTestCases extends TestBaseTodoly {
         Assertions.assertTrue(navigationBar.logoutButton.isControlDisplayed(), "Login Error: The user could not login.");
     }
 
-//    @Test
-//    public void deleteAccount() throws InterruptedException {
-//        presentationPage.signUpButton.waitClickable();
-//        presentationPage.signUpButton.click();
-//
-//        signUpModal.signUp(name,generatedMail, generatedPwd);
-//
-//        navigationBar.settingsButton.waitClickable();
-//        navigationBar.settingsButton.click();
-//
-//        settingsModal.accountTab.waitClickable();
-//        settingsModal.accountTab.click();
-//        settingsModal.deleteAccountBtn.waitClickable();
-//        settingsModal.deleteAccountBtn.click();
-//        settingsModal.okBtn.click();
-//        // delete account validation message locator?
-//        presentationPage.signUpButton.waitClickable();
-//        presentationPage.signUpButton.click();
-//
-//        loginModal.login(generatedMail, generatedPwd);
-//        Assertions.assertFalse(navigationBar.logoutButton.isControlDisplayed(), "Configuration Error: could not delete account");
-//    }
+    @Test
+    public void deleteAccount() throws InterruptedException {
+        presentationPage.signUpButton.waitClickable();
+        presentationPage.signUpButton.click();
+
+        signUpModal.signUp(name,generatedMail, generatedPwd);
+
+        navigationBar.settingsButton.waitClickable();
+        navigationBar.settingsButton.click();
+
+        settingsModal.accountTab.waitClickable();
+        settingsModal.accountTab.click();
+        settingsModal.deleteAccountBtn.waitClickable();
+        settingsModal.deleteAccountBtn.click();
+        Session.getInstance().getBrowser().switchTo().alert().accept();
+
+        presentationPage.loginButton.waitClickable();
+        presentationPage.loginButton.click();
+
+        loginModal.email.waitToElementToBePresent();
+        loginModal.login(generatedMail, generatedPwd);
+        Assertions.assertFalse(navigationBar.logoutButton.isControlDisplayed(), "Configuration Error: could not delete account");
+    }
 
     @Test
     public void newAndOldPwdEquals() throws InterruptedException {

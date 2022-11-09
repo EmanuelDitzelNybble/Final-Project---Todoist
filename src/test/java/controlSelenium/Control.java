@@ -60,9 +60,9 @@ public class Control {
         this.findControl();
         return control.getAttribute(value);
     }
-    public void waitTextToBe(String texto){
+    public void waitTextToBe(String text){
         WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.textToBe(this.locator,texto));
+        wait.until(ExpectedConditions.textToBe(this.locator,text));
     }
     public void waitVisibility(){
         WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));

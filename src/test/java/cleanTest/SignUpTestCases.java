@@ -37,6 +37,6 @@ public class SignUpTestCases extends TestBaseTodoly {
         presentationPage.signUpButton.click();
 
         signUpModal.signUp(name, existingAccount, pwd);
-        Assertions.assertTrue(navigationBar.logoutButton.isControlDisplayed(), "SignUp Error: Account with this email already exists.");
+        Assertions.assertTrue(navigationBar.logoutButton.isControlDisplayed(), "SignUp Error: Account with this email already exists."); // revisar
     }
 }

@@ -17,6 +17,8 @@ public class TestBaseTodoly {
         public NavigationBar navigationBar = new NavigationBar();
         public MainPage mainPage = new MainPage();
         public SettingsModal settingsModal = new SettingsModal();
+        public TaskSection taskSection = new TaskSection();
+        public ProjectPanel projectPanel = new ProjectPanel();
 
     static String getAlphaNumericString(int n)
     {
