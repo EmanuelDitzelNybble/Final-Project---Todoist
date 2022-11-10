@@ -53,13 +53,12 @@ public class RecycleBinTests extends TestBaseTodoly {
         Thread.sleep(4000);
         Assertions.assertFalse(taskSection.getCompletedTask(taskName).isControlDisplayed(),"Error: The completed task was not deleted");
 
-        recycleBinPanel.recycleBin.waitClickable();
-        recycleBinPanel.recycleBin.click();
-        recycleBinPanel.dropDownBtn.waitClickable();
-        recycleBinPanel.dropDownBtn.click();
 
+        recycleBinPanel.recycleBin.click();
+
+        recycleBinPanel.dropDownBtn.click();
         recycleBinPanel.emptyBinBtn.waitClickable();
         recycleBinPanel.emptyBinBtn.click();
-
+        Assertions.assertFalse(taskSection.getCompletedTask(taskName).isControlDisplayed(),"Error: The task has not been deleted");
     }
 }

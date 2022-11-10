@@ -15,7 +15,7 @@ public class SettingsTestCases extends TestBaseTodoly {
     String generatedPwd = getAlphaNumericString(8);
     String newGeneratedPwd = getAlphaNumericString(7);
     @Test
-    @DisplayName("Verify that a user can succesfully change the password.")
+    @DisplayName("Verify that a user can successfully change the password.")
     @Description("This test is to verify that a user can change the password of his account.")
     @Owner("Emanuel Ditzel")
     @Epic("Account Settings")
@@ -157,5 +157,3 @@ public class SettingsTestCases extends TestBaseTodoly {
         Assertions.assertNotEquals(settingsModal.fullName.getText(), name,"Configuration Error: name has not been modified");
     }
 }
-
-

@@ -248,6 +248,7 @@ public class TaskTestCases extends TestBaseTodoly {
 
             taskSection.deleteAllBtn.click();
             Session.getInstance().getBrowser().switchTo().alert().accept();
+            //navigationBar.logoutButton.waitClickable();
             Thread.sleep(4000);
             Assertions.assertFalse(taskSection.getCompletedTask(taskName).isControlDisplayed(),"Error: The completed task was not deleted");
         }
