@@ -1,6 +1,9 @@
 package cleanTest;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import singletonSession.Session;
 
@@ -8,6 +11,13 @@ import java.util.Date;
 
 public class RecycleBinTests extends TestBaseTodoly {
     @Test
+    @DisplayName("Verify that the recycle bin can be emptied.")
+    @Description("This test is to verify that a user can empty the recycle bin")
+    @Owner("Emanuel Ditzel")
+    @Epic("Recycle Bin")
+    @Feature("Empty Bin")
+    @Story("Recycle Bin Story")
+    @Tag("Regression Test")
     public void emptyRecycleBin() throws InterruptedException {
         String project = "New Project";
         String name = "userName"+ new Date().getTime();

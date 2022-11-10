@@ -1,6 +1,9 @@
 package cleanTest;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import singletonSession.Session;
 
@@ -12,6 +15,13 @@ public class SettingsTestCases extends TestBaseTodoly {
     String generatedPwd = getAlphaNumericString(8);
     String newGeneratedPwd = getAlphaNumericString(7);
     @Test
+    @DisplayName("Verify that a user can succesfully change the password.")
+    @Description("This test is to verify that a user can change the password of his account.")
+    @Owner("Emanuel Ditzel")
+    @Epic("Account Settings")
+    @Feature("Change Password")
+    @Story("Account Settings Story")
+    @Tag("Regression Test")
     public void changePassword() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -37,6 +47,13 @@ public class SettingsTestCases extends TestBaseTodoly {
     }
 
     @Test
+    @DisplayName("Verify that the user can delete their account")
+    @Description("This test is to validate that the user can delete their account in [Settings] section")
+    @Owner("Emanuel Ditzel")
+    @Epic("Account Settings")
+    @Feature("Delete Account")
+    @Story("Account Settings Story")
+    @Tag("Regression Test")
     public void deleteAccount() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -61,6 +78,14 @@ public class SettingsTestCases extends TestBaseTodoly {
     }
 
     @Test
+    @DisplayName("Verify that the user cannot use the same password to change password")
+    @Description("This test case is to verify that a user cannot use the same password to create a new one.")
+    @Owner("Emanuel Ditzel")
+    @Epic("Account Settings")
+    @Feature("Change Password")
+    @Story("Account Settings Story")
+    @Tag("Regression Test")
+    @Severity(SeverityLevel.NORMAL)
     public void newAndOldPwdEquals() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -77,6 +102,13 @@ public class SettingsTestCases extends TestBaseTodoly {
     }
 
     @Test
+    @DisplayName("Verify that the user can cancel changes made in [Settings].")
+    @Description("This test case is to verify that a user can cancel all changes made in [Settings] modal")
+    @Owner("Emanuel Ditzel")
+    @Epic("Account Settings")
+    @Feature("Cancel Configuration Changes")
+    @Story("Account Settings Story")
+    @Tag("Regression Test")
     public void cancelSettingsChanges() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -99,6 +131,13 @@ public class SettingsTestCases extends TestBaseTodoly {
     }
 
     @Test
+    @DisplayName("Verify that a user can change their name")
+    @Description("This test is to verify that a user can change his name from settings modal")
+    @Owner("Emanuel Ditzel")
+    @Epic("Account Settings")
+    @Feature("Change Name")
+    @Story("Account Settings Story")
+    @Tag("Regression Test")
     public void changeName() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();

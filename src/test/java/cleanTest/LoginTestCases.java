@@ -1,12 +1,22 @@
 package cleanTest;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class LoginTestCases extends TestBaseTodoly {
     String mail = "emailexample@gmail.com";
     String pwd = "passwordfield";
     @Test
+    @DisplayName("Verify if a user can log in successfully")
+    @Description("This test case is to verify that a user can log in with a created account.")
+    @Owner("Emanuel Ditzel")
+    @Epic("Login")
+    @Feature("Authentication")
+    @Story("Login")
+    @Tag("Regression Test")
     public void login() throws InterruptedException {
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();
@@ -16,6 +26,13 @@ public class LoginTestCases extends TestBaseTodoly {
         Assertions.assertTrue(mainPage.mainPageLabel.isControlDisplayed(),"Login Error: The user could not log in.");
     }
     @Test
+    @DisplayName("Verify if a validation message is displayed when the user wants to reset the password")
+    @Description("This test case is to verify if a validation message is displayed when a user wants to reset his password")
+    @Owner("Emanuel Ditzel")
+    @Epic("Login")
+    @Feature("Authentication")
+    @Story("Login")
+    @Tag("Regression Test")
     public void resetPasswordValidationMsg() throws InterruptedException {
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();
@@ -30,6 +47,13 @@ public class LoginTestCases extends TestBaseTodoly {
     }
 
     @Test
+    @DisplayName("Verify if a user can login with empty [Email] textBox field")
+    @Description("This test is to verify if a user can log in without entering an email address.")
+    @Owner("Emanuel Ditzel")
+    @Epic("Login")
+    @Feature("Authentication")
+    @Story("Login")
+    @Tag("Regression Test")
     public void loginWithoutEmail() throws InterruptedException {
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();
@@ -39,6 +63,13 @@ public class LoginTestCases extends TestBaseTodoly {
     }
 
     @Test
+    @DisplayName("Verify if a user can log in by leaving the [password] field empty")
+    @Description("This test is to verify if a user can log in without entering a password.")
+    @Owner("Emanuel Ditzel")
+    @Epic("Login")
+    @Feature("Authentication")
+    @Story("Login")
+    @Tag("Regression Test")
     public void loginWithoutPassword() throws InterruptedException {
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();

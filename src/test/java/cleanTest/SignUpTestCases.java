@@ -1,8 +1,7 @@
 package cleanTest;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.*;
 
 import javax.swing.*;
 import java.util.Date;
@@ -12,6 +11,14 @@ public class SignUpTestCases extends TestBaseTodoly {
     String pwd = "passwordfield";
 
     @Test
+    @DisplayName("Verify if a user can register successfully")
+    @Description("This test case is to verify if a new user is able to register successfully")
+    @Owner("Emanuel Ditzel")
+    @Epic("Registration")
+    @Feature("Authentication")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("Registration")
+    @Tag("Regression Test")
     public void register() throws InterruptedException {
         String email = "userEmail"+ new Date().getTime()+"@gmail.com";
 
@@ -23,7 +30,15 @@ public class SignUpTestCases extends TestBaseTodoly {
     }
 
     @Test
-    public void emptyFields() throws InterruptedException {
+    @DisplayName("Verify if a user can register without filling any Signup field")
+    @Description("This test case is to verify if a user can register without any information given in Signup modal")
+    @Owner("Emanuel Ditzel")
+    @Epic("Registration")
+    @Feature("Authentication")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("Registration")
+    @Tag("Regression Test")
+    public void emptyFieldsSignUpModal() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
@@ -32,6 +47,14 @@ public class SignUpTestCases extends TestBaseTodoly {
     }
 
     @Test
+    @DisplayName("Verify if a user cannot register with an already created account")
+    @Description("This test case is to verify that a user cannot register with an already created account.")
+    @Owner("Emanuel Ditzel")
+    @Epic("Registration")
+    @Feature("Authentication")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("Registration")
+    @Tag("Regression Test")
     public void registerWithExistingAccount() throws InterruptedException {
         String existingAccount = "emailexample@gmail.com";
 

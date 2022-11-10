@@ -1,6 +1,9 @@
 package cleanTest;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import singletonSession.Session;
 
@@ -16,6 +19,13 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     String manyCharactersName = getAlphaNumericString(161);
 
     @Test
+    @DisplayName("Verify that a project can be created")
+    @Description("This test is to verify that a user can create a new project")
+    @Owner("Emanuel Ditzel")
+    @Epic("Projects")
+    @Feature("Create Project")
+    @Story("Project Story")
+    @Tag("Regression Test")
     public void createProject() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -32,6 +42,13 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     }
 
 //    @Test
+//    @DisplayName("Verify if a project name can be edited")
+//    @Description("This test is to verify that a user can modify the name of a project he has created.")
+//    @Owner("Emanuel Ditzel")
+//    @Epic("Projects")
+//    @Feature("Edit Project")
+//    @Story("Project Story")
+//    @Tag("Regression Test")
 //    public void editProjectName() throws InterruptedException {
 //        presentationPage.signUpButton.waitClickable();
 //        presentationPage.signUpButton.click();
@@ -59,6 +76,14 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
 //    }
 
     @Test
+    @DisplayName("Verify that a user cannot create two projects with the same name")
+    @Description("This test case is to verify that a user cannot create a project with a name that already exists.")
+    @Owner("Emanuel Ditzel")
+    @Epic("Projects")
+    @Feature("Duplicated Project")
+    @Story("Project Story")
+    @Tag("Regression Test")
+    @Severity(SeverityLevel.NORMAL)
     public void duplicatedProjectName() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -84,6 +109,13 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     }
 
     @Test
+    @DisplayName("Verify that a user can delete a project ")
+    @Description("This test is to verify if a user can delete a created project")
+    @Owner("Emanuel Ditzel")
+    @Epic("Projects")
+    @Feature("Delete Project")
+    @Story("Project Story")
+    @Tag("Regression Test")
     public void deleteProject() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -107,6 +139,14 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     }
 
     @Test
+    @DisplayName("Verify that a project name with more than 160 characters cannot be created")
+    @Description("This test case is to verify that the creation of a new project has a character limit in the name input.")
+    @Owner("Emanuel Ditzel")
+    @Epic("Projects")
+    @Feature("Limit Of Characters in Project Name")
+    @Story("Project Story")
+    @Tag("Regression Test")
+    @Severity(SeverityLevel.BLOCKER)
     public void limitOfCharactersProjectName() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
