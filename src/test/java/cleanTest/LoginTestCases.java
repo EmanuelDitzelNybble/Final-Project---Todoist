@@ -47,3 +47,4 @@ public class LoginTestCases extends TestBaseTodoly {
         Assertions.assertTrue(mainPage.inboxButton.isControlDisplayed(),"Login Error: Please, complete [Password] field with valid data.");
     }
 }
+

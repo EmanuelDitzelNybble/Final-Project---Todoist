@@ -19,6 +19,7 @@ public class TestBaseTodoly {
         public SettingsModal settingsModal = new SettingsModal();
         public TaskSection taskSection = new TaskSection();
         public ProjectPanel projectPanel = new ProjectPanel();
+        public RecycleBinPanel recycleBinPanel = new RecycleBinPanel();
 
     static String getAlphaNumericString(int n)
     {

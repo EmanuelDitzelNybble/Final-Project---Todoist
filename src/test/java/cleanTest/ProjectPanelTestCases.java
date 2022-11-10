@@ -2,6 +2,7 @@ package cleanTest;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import singletonSession.Session;
 
 import java.util.Date;
 
@@ -30,28 +31,32 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
         Assertions.assertTrue(projectPanel.getProject(project).isControlDisplayed(),"Error creating new project");
     }
 
-    @Test
-    public void editProjectName() throws InterruptedException {
-        presentationPage.signUpButton.waitClickable();
-        presentationPage.signUpButton.click();
-
-        signUpModal.signUp(name, email, pwd);
-        Assertions.assertTrue(navigationBar.logoutButton.isControlDisplayed(), "SignUp Error: User could not register.");
-
-        projectPanel.addNewProjectBtn.waitClickable();
-        projectPanel.addNewProjectBtn.click();
-        projectPanel.newProjectName.waitToElementToBePresent();
-        projectPanel.newProjectName.setText(project);
-        projectPanel.addBtn.click();
-        Assertions.assertTrue(projectPanel.getProject(project).isControlDisplayed(),"Error creating new project");
-
-        projectPanel.getProject(project).click();
-        projectPanel.optionsDropDownBtn.click();
-        projectPanel.editBtn.click();
-        projectPanel.getProject(project).addText(project+" Edited");
-        projectPanel.saveChangesBtn.click();
-        Assertions.assertEquals(projectPanel.getProject(project).getText(),"New Project Edited", "Error: The project name was not edited"); // revisar
-    }
+//    @Test
+//    public void editProjectName() throws InterruptedException {
+//        presentationPage.signUpButton.waitClickable();
+//        presentationPage.signUpButton.click();
+//
+//        signUpModal.signUp(name, email, pwd);
+//        Assertions.assertTrue(navigationBar.logoutButton.isControlDisplayed(), "SignUp Error: User could not register.");
+//
+//        projectPanel.addNewProjectBtn.waitClickable();
+//        projectPanel.addNewProjectBtn.click();
+//        projectPanel.newProjectName.waitToElementToBePresent();
+//        projectPanel.newProjectName.setText(project);
+//        projectPanel.addBtn.click();
+//        Assertions.assertTrue(projectPanel.getProject(project).isControlDisplayed(),"Error creating new project");
+//
+//
+//        projectPanel.optionDropDownIcon(project).click();
+//        projectPanel.editBtn.click();
+//        // Revisar
+//        Thread.sleep(2000);
+//        projectPanel.getProject(project).addText(" Edited");
+//        Thread.sleep(2000);
+//        projectPanel.saveChangesBtn.click();
+//        Thread.sleep(2000);
+//        Assertions.assertEquals(projectPanel.getProject(project).getText(),"New Project Edited", "Error: The project name was not edited"); // REVISAR
+//    }
 
     @Test
     public void duplicatedProjectName() throws InterruptedException {
@@ -75,7 +80,6 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
         projectPanel.newProjectName.setText(duplicatedProjectName);
         projectPanel.addBtn.click();
         String duplicatedName = projectPanel.getProject(duplicatedProjectName).getText();
-        Thread.sleep(5000);
         Assertions.assertNotEquals(name, duplicatedName, "Error: Project with the entered name already exists");
     }
 
@@ -94,11 +98,16 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
         projectPanel.addBtn.click();
         Assertions.assertTrue(projectPanel.getProject(project).isControlDisplayed(),"Error creating new project");
 
-        // como ubicar options icon
+        projectPanel.getProject(project).click();
+        projectPanel.optionDropDownIconProject(project).click();
+        projectPanel.deleteBtn.waitClickable();
+        projectPanel.deleteBtn.click();
+        Session.getInstance().getBrowser().switchTo().alert().accept();
+        Assertions.assertFalse(projectPanel.getProject(project).isControlDisplayed(),"Error deleting project");
     }
 
     @Test
-    public void characterLimitName() throws InterruptedException {
+    public void limitOfCharactersProjectName() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 

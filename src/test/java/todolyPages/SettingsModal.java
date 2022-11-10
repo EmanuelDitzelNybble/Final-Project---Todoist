@@ -9,7 +9,6 @@ public class SettingsModal {
     public TextBox email = new TextBox(By.id("EmailInput"),"[Full Name] textBox on settings modal");
     public Button dropDownTimezoneBtn = new Button(By.id("DropDownTimezone"),"[Timezone] drop-down list button on settings modal");
     public Button buenosAiresOption = new Button(By.xpath("//option[@value='Argentina Standard Time']"),"Argentina standard time option on timezone drop-down list");
-
     public TextBox oldPassword = new TextBox(By.id("TextPwOld"),"[Old Password] button on settings modal");
     public TextBox newPassword = new TextBox(By.id("TextPwNew"),"[New Password] button on settings modal");
     public Button okBtn = new Button(By.xpath("//span[text()='Ok']"),"[Ok] button on settings modal");

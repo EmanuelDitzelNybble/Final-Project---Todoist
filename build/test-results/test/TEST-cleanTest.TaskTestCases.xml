@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="cleanTest.ProjectPanelTestCases" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-11-09T16:35:28" hostname="Ditzel" time="19.376">
+<testsuite name="cleanTest.TaskTestCases" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-11-10T01:52:18" hostname="Ditzel" time="16.567">
   <properties/>
-  <testcase name="characterLimitName()" classname="cleanTest.ProjectPanelTestCases" time="19.376">
-    <failure message="org.opentest4j.AssertionFailedError: Error creating project, too many characters ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Error creating project, too many characters ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+  <testcase name="hiddenAndShownButtonsFunctionality()" classname="cleanTest.TaskTestCases" time="16.567">
+    <failure message="org.opentest4j.AssertionFailedError: Error: task is still displayed ==&gt; expected: &lt;false&gt; but was: &lt;true&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Error: task is still displayed ==&gt; expected: &lt;false&gt; but was: &lt;true&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at app//org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:211)
-	at app//cleanTest.ProjectPanelTestCases.characterLimitName(ProjectPanelTestCases.java:111)
+	at app//org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at app//org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
+	at app//org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:236)
+	at app//cleanTest.TaskTestCases.hiddenAndShownButtonsFunctionality(TaskTestCases.java:140)
 	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base@11.0.16.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -98,16 +98,16 @@
 </failure>
   </testcase>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 60064
+  <system-err><![CDATA[Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 62586
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-[1668011736.434][WARNING]: This version of ChromeDriver has not been tested with Chrome version 107.
-Nov 09, 2022 1:35:37 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+[1668045144.274][WARNING]: This version of ChromeDriver has not been tested with Chrome version 107.
+Nov 09, 2022 10:52:24 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-Nov 09, 2022 1:35:38 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Nov 09, 2022 10:52:25 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 107, so returning the closest version found: 106
-Nov 09, 2022 1:35:38 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Nov 09, 2022 10:52:25 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 107 of 106
 ]]></system-err>
 </testsuite>
