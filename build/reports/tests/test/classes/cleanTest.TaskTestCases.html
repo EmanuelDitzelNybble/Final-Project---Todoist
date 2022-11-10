@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">16.567s</div>
+<div class="counter">28.611s</div>
 <p>duration</p>
 </div>
 </td>
@@ -73,16 +73,36 @@
 <div id="tab0" class="tab">
 <h2>Failed tests</h2>
 <div class="test">
-<a name="hiddenAndShownButtonsFunctionality()"></a>
-<h3 class="failures">hiddenAndShownButtonsFunctionality()</h3>
+<a name="sortTaskByPriority()"></a>
+<h3 class="failures">sortTaskByPriority()</h3>
 <span class="code">
-<pre>org.opentest4j.AssertionFailedError: Error: task is still displayed ==&gt; expected: &lt;false&gt; but was: &lt;true&gt;
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at app//org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
-	at app//org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
-	at app//org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:236)
-	at app//cleanTest.TaskTestCases.hiddenAndShownButtonsFunctionality(TaskTestCases.java:140)
+<pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//li[last()]//td[text()='Changing to Priority 2']//following-sibling::td//div[@style=&quot;display: block;&quot;]//img[@src=&quot;/Images/dropdown.png&quot;]&quot;}
+  (Session info: chrome=107.0.5304.87)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.5.0', revision: 'fe167b119a'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '11.6.5', java.version: '11.0.16.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [696c37daf041f18feff5f04c7c40cd18, findElement {using=xpath, value=//li[last()]//td[text()='Changing to Priority 2']//following-sibling::td//div[@style=&quot;display: block;&quot;]//img[@src=&quot;/Images/dropdown.png&quot;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.87, chrome: {chromedriverVersion: 106.0.5249.61 (511755355844..., userDataDir: /var/folders/15/nkktjmmd7c9...}, goog:chromeOptions: {debuggerAddress: localhost:63964}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:63964/devtoo..., se:cdpVersion: 107.0.5304.87, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 696c37daf041f18feff5f04c7c40cd18
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base@11.0.16.1/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base@11.0.16.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.16.1/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at app//controlSelenium.Control.findControl(Control.java:28)
+	at app//controlSelenium.Control.click(Control.java:33)
+	at app//cleanTest.TaskTestCases.sortTaskByPriority(TaskTestCases.java:172)
 	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@11.0.16.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base@11.0.16.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -184,8 +204,8 @@
 </tr>
 </thead>
 <tr>
-<td class="failures">hiddenAndShownButtonsFunctionality()</td>
-<td class="failures">16.567s</td>
+<td class="failures">sortTaskByPriority()</td>
+<td class="failures">28.611s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -193,16 +213,16 @@
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 62586
+<pre>Starting ChromeDriver 106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}) on port 53244
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-[1668045144.274][WARNING]: This version of ChromeDriver has not been tested with Chrome version 107.
-Nov 09, 2022 10:52:24 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+[1668079307.434][WARNING]: This version of ChromeDriver has not been tested with Chrome version 107.
+Nov 10, 2022 8:21:48 AM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-Nov 09, 2022 10:52:25 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Nov 10, 2022 8:21:49 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 107, so returning the closest version found: 106
-Nov 09, 2022 10:52:25 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Nov 10, 2022 8:21:49 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 INFO: Found CDP implementation for version 107 of 106
 </pre>
 </span>
@@ -215,7 +235,7 @@ INFO: Found CDP implementation for version 107 of 106
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at Nov 9, 2022, 10:52:35 PM</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at Nov 10, 2022, 8:22:10 AM</p>
 </div>
 </div>
 </body>

@@ -9,11 +9,11 @@ import java.util.Date;
 
 public class SignUpTestCases extends TestBaseTodoly {
     String name = "userName"+ new Date().getTime();
-    String email = "userEmail"+ new Date().getTime()+"@gmail.com";
     String pwd = "passwordfield";
-    String existingAccount = "emailexample@gmail.com";
+
     @Test
     public void register() throws InterruptedException {
+        String email = "userEmail"+ new Date().getTime()+"@gmail.com";
 
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -33,10 +33,12 @@ public class SignUpTestCases extends TestBaseTodoly {
 
     @Test
     public void registerWithExistingAccount() throws InterruptedException {
+        String existingAccount = "emailexample@gmail.com";
+
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
         signUpModal.signUp(name, existingAccount, pwd);
-        Assertions.assertTrue(navigationBar.logoutButton.isControlDisplayed(), "SignUp Error: Account with this email already exists."); // revisar
+        Assertions.assertFalse(navigationBar.logoutButton.isControlDisplayed(), "SignUp Error: Account with this email already exists.");
     }
 }

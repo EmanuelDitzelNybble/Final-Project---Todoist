@@ -15,5 +15,4 @@ public class SettingsModal {
     public Button cancelBtn = new Button(By.xpath("//span[text()='Cancel']"), "[Cancel] button on settings modal");
     public Button accountTab = new Button(By.xpath("//a[text()='Account']"),"[Account] tab on settings modal");
     public Button deleteAccountBtn = new Button(By.id("DeleteAccountBtn"), "[Account] button on settings page");
-    public Button profileBtn = new Button(By.xpath("//a[text()='Profile']"),"[Profile] tab on settings modal");
 }
