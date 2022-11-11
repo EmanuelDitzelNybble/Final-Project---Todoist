@@ -16,7 +16,8 @@ public class LogoutTestCase extends TestBaseTodoly {
     @Epic("Logout")
     @Feature("Authentication")
     @Story("Login Story")
-    @Tag("Regression Test")
+    @Tag("Logout")
+    @Severity(SeverityLevel.CRITICAL)
     public void logout() throws InterruptedException {
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();

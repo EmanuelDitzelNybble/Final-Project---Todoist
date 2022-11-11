@@ -15,8 +15,7 @@ public class TaskTestCases extends TestBaseTodoly {
     String email = "userEmail"+ new Date().getTime()+"@gmail.com";
     String pwd = "passwordfield";
     String taskName = "Task"+ new Date().getTime();
-    String taskName1 = "Changing to Priority 2";
-    String manyCharactersName = getAlphaNumericString(260);
+    String manyCharactersName = getAlphaNumericString(201);
     @Test
     @DisplayName("Verify that a user can create a new task")
     @Description("This test is to verify that a task can be created successfully by the user")
@@ -24,7 +23,8 @@ public class TaskTestCases extends TestBaseTodoly {
     @Epic("Task")
     @Feature("Create Task")
     @Story("Task Story")
-    @Tag("Regression Test")
+    @Tag("TasksTests")
+    @Severity(SeverityLevel.CRITICAL)
         public void createTask() throws InterruptedException {
 
             presentationPage.signUpButton.waitClickable();
@@ -53,7 +53,8 @@ public class TaskTestCases extends TestBaseTodoly {
     @Epic("Task")
     @Feature("Delete Task")
     @Story("Task Story")
-    @Tag("Regression Test")
+    @Tag("TasksTests")
+    @Severity(SeverityLevel.NORMAL)
         public void deleteTask() throws InterruptedException {
             presentationPage.signUpButton.waitClickable();
             presentationPage.signUpButton.click();
@@ -88,7 +89,7 @@ public class TaskTestCases extends TestBaseTodoly {
     @Epic("Task")
     @Feature("Hide and Show task")
     @Story("Task Story")
-    @Tag("Regression Test")
+    @Tag("Bugs")
     @Severity(SeverityLevel.MINOR)
         public void hiddenAndShownButtonsFunctionality() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
@@ -123,7 +124,8 @@ public class TaskTestCases extends TestBaseTodoly {
     @Epic("Task")
     @Feature("Set Task Priority")
     @Story("Task Story")
-    @Tag("Regression Test")
+    @Tag("TasksTests")
+    @Severity(SeverityLevel.NORMAL)
         public void setPriority() throws InterruptedException {
             presentationPage.signUpButton.waitClickable();
             presentationPage.signUpButton.click();
@@ -158,7 +160,7 @@ public class TaskTestCases extends TestBaseTodoly {
     @Epic("Task")
     @Feature("Limit Of Characters in Task Name")
     @Story("Task Story")
-    @Tag("Regression Test")
+    @Tag("Bugs")
     @Severity(SeverityLevel.BLOCKER)
         public void limitOfCharactersTaskName() throws InterruptedException {
             presentationPage.signUpButton.waitClickable();
@@ -187,8 +189,9 @@ public class TaskTestCases extends TestBaseTodoly {
     @Owner("Emanuel Ditzel")
     @Epic("Task")
     @Feature("Complete a Task")
-    @Story("Task Story")
+    @Story("TasksTests")
     @Tag("Regression Test")
+    @Severity(SeverityLevel.NORMAL)
         public void verifyCompletedTask() throws InterruptedException {
             presentationPage.signUpButton.waitClickable();
             presentationPage.signUpButton.click();
@@ -220,8 +223,9 @@ public class TaskTestCases extends TestBaseTodoly {
     @Owner("Emanuel Ditzel")
     @Epic("Task")
     @Feature("Task Removal")
-    @Story("Task Story")
+    @Story("TasksTests")
     @Tag("Regression Test")
+    @Severity(SeverityLevel.NORMAL)
         public void deleteCompletedTask() throws InterruptedException {
             presentationPage.signUpButton.waitClickable();
             presentationPage.signUpButton.click();
@@ -248,7 +252,6 @@ public class TaskTestCases extends TestBaseTodoly {
 
             taskSection.deleteAllBtn.click();
             Session.getInstance().getBrowser().switchTo().alert().accept();
-            //navigationBar.logoutButton.waitClickable();
             Thread.sleep(4000);
             Assertions.assertFalse(taskSection.getCompletedTask(taskName).isControlDisplayed(),"Error: The completed task was not deleted");
         }

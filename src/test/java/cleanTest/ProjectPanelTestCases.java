@@ -11,7 +11,6 @@ import java.util.Date;
 
 public class ProjectPanelTestCases extends TestBaseTodoly {
     String project = "New Project";
-    String subProject = "SubProject";
     String name = "userName"+ new Date().getTime();
     String email = "userEmail"+ new Date().getTime()+"@gmail.com";
     String pwd = "passwordfield";
@@ -25,7 +24,8 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     @Epic("Projects")
     @Feature("Create Project")
     @Story("Project Story")
-    @Tag("Regression Test")
+    @Tag("ProjectTests")
+    @Severity(SeverityLevel.CRITICAL)
     public void createProject() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -41,40 +41,6 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
         Assertions.assertTrue(projectPanel.getProject(project).isControlDisplayed(),"Error creating new project");
     }
 
-//    @Test
-//    @DisplayName("Verify if a project name can be edited")
-//    @Description("This test is to verify that a user can modify the name of a project he has created.")
-//    @Owner("Emanuel Ditzel")
-//    @Epic("Projects")
-//    @Feature("Edit Project")
-//    @Story("Project Story")
-//    @Tag("Regression Test")
-//    public void editProjectName() throws InterruptedException {
-//        presentationPage.signUpButton.waitClickable();
-//        presentationPage.signUpButton.click();
-//
-//        signUpModal.signUp(name, email, pwd);
-//        Assertions.assertTrue(navigationBar.logoutButton.isControlDisplayed(), "SignUp Error: User could not register.");
-//
-//        projectPanel.addNewProjectBtn.waitClickable();
-//        projectPanel.addNewProjectBtn.click();
-//        projectPanel.newProjectName.waitToElementToBePresent();
-//        projectPanel.newProjectName.setText(project);
-//        projectPanel.addBtn.click();
-//        Assertions.assertTrue(projectPanel.getProject(project).isControlDisplayed(),"Error creating new project");
-//
-//
-//        projectPanel.optionDropDownIcon(project).click();
-//        projectPanel.editBtn.click();
-//        // Revisar
-//        Thread.sleep(2000);
-//        projectPanel.getProject(project).addText(" Edited");
-//        Thread.sleep(2000);
-//        projectPanel.saveChangesBtn.click();
-//        Thread.sleep(2000);
-//        Assertions.assertEquals(projectPanel.getProject(project).getText(),"New Project Edited", "Error: The project name was not edited"); // REVISAR
-//    }
-
     @Test
     @DisplayName("Verify that a user cannot create two projects with the same name")
     @Description("This test case is to verify that a user cannot create a project with a name that already exists.")
@@ -82,7 +48,7 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     @Epic("Projects")
     @Feature("Duplicated Project")
     @Story("Project Story")
-    @Tag("Regression Test")
+    @Tag("Bug")
     @Severity(SeverityLevel.NORMAL)
     public void duplicatedProjectName() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
@@ -115,7 +81,8 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     @Epic("Projects")
     @Feature("Delete Project")
     @Story("Project Story")
-    @Tag("Regression Test")
+    @Tag("ProjectTests")
+    @Severity(SeverityLevel.CRITICAL)
     public void deleteProject() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -135,6 +102,7 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
         projectPanel.deleteBtn.waitClickable();
         projectPanel.deleteBtn.click();
         Session.getInstance().getBrowser().switchTo().alert().accept();
+        Thread.sleep(3000);
         Assertions.assertFalse(projectPanel.getProject(project).isControlDisplayed(),"Error deleting project");
     }
 
@@ -145,8 +113,8 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     @Epic("Projects")
     @Feature("Limit Of Characters in Project Name")
     @Story("Project Story")
-    @Tag("Regression Test")
-    @Severity(SeverityLevel.BLOCKER)
+    @Tag("Bugs")
+    @Severity(SeverityLevel.NORMAL)
     public void limitOfCharactersProjectName() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();

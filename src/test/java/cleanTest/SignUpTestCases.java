@@ -16,9 +16,9 @@ public class SignUpTestCases extends TestBaseTodoly {
     @Owner("Emanuel Ditzel")
     @Epic("Registration")
     @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
     @Story("Registration")
-    @Tag("Regression Test")
+    @Tag("SignUpTest")
+    @Severity(SeverityLevel.CRITICAL)
     public void register() throws InterruptedException {
         String email = "userEmail"+ new Date().getTime()+"@gmail.com";
 
@@ -35,9 +35,9 @@ public class SignUpTestCases extends TestBaseTodoly {
     @Owner("Emanuel Ditzel")
     @Epic("Registration")
     @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
     @Story("Registration")
-    @Tag("Regression Test")
+    @Tag("SignUpTest")
+    @Severity(SeverityLevel.CRITICAL)
     public void emptyFieldsSignUpModal() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -52,9 +52,9 @@ public class SignUpTestCases extends TestBaseTodoly {
     @Owner("Emanuel Ditzel")
     @Epic("Registration")
     @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
     @Story("Registration")
-    @Tag("Regression Test")
+    @Tag("SignUpTest")
+    @Severity(SeverityLevel.CRITICAL)
     public void registerWithExistingAccount() throws InterruptedException {
         String existingAccount = "emailexample@gmail.com";
 

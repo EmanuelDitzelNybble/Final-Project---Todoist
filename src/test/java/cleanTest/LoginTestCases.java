@@ -16,11 +16,12 @@ public class LoginTestCases extends TestBaseTodoly {
     @Epic("Login")
     @Feature("Authentication")
     @Story("Login")
-    @Tag("Regression Test")
+    @Tag("LoginTests")
+    @Severity(SeverityLevel.CRITICAL)
     public void login() throws InterruptedException {
+
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();
-
         loginModal.login(mail, pwd);
         mainPage.mainPageLabel.waitVisibility();
         Assertions.assertTrue(mainPage.mainPageLabel.isControlDisplayed(),"Login Error: The user could not log in.");
@@ -32,7 +33,8 @@ public class LoginTestCases extends TestBaseTodoly {
     @Epic("Login")
     @Feature("Authentication")
     @Story("Login")
-    @Tag("Regression Test")
+    @Tag("LoginTests")
+    @Severity(SeverityLevel.NORMAL)
     public void resetPasswordValidationMsg() throws InterruptedException {
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();
@@ -53,7 +55,8 @@ public class LoginTestCases extends TestBaseTodoly {
     @Epic("Login")
     @Feature("Authentication")
     @Story("Login")
-    @Tag("Regression Test")
+    @Tag("LoginTests")
+    @Severity(SeverityLevel.CRITICAL)
     public void loginWithoutEmail() throws InterruptedException {
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();
@@ -69,7 +72,8 @@ public class LoginTestCases extends TestBaseTodoly {
     @Epic("Login")
     @Feature("Authentication")
     @Story("Login")
-    @Tag("Regression Test")
+    @Tag("LoginTests")
+    @Severity(SeverityLevel.CRITICAL)
     public void loginWithoutPassword() throws InterruptedException {
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();

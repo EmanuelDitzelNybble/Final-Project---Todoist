@@ -16,8 +16,8 @@ public class Cloud implements  IBrowser{
         HashMap<String, String> bstackOptionsMap = new HashMap<String, String>();
         bstackOptionsMap.put("userName", "emanuel_wm6QTo");
         bstackOptionsMap.put("accessKey", "uLZrVB45qjCqZGkHx1wy");
-        bstackOptionsMap.put("os", "Windows");
-        bstackOptionsMap.put("osVersion", "11");
+        bstackOptionsMap.put("os", "OS X");
+        bstackOptionsMap.put("osVersion", "Monterey");
         bstackOptionsMap.put("browserName", "Chrome");
         bstackOptionsMap.put("browserVersion", "latest");
         capabilities.setCapability("bstack:options", bstackOptionsMap);

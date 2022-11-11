@@ -11,18 +11,11 @@ public class TaskSection {
     public Button addItemBtn = new Button(By.id("NewItemAddButton"),"[Add] button in task section");
     public Button deleteTaskBtn = new Button(By.xpath("//li[last()]/a[text()='Delete']"),"[Delete] button in task section");
     public Button optionTaskBtn = new Button(By.xpath("//div[@id=\"ItemListPlaceHolder\"]//img[@src=\"/Images/dropdown.png\"]"),"[Option] icon button in task section");
-
     public Button priorityTwoOption = new Button(By.xpath("//div[@id=\"Div1\"]//span[@iconid=\"2\"]"),"[Priority 2] in task section");
     public Button shownNotesButton = new Button(By.xpath("//span[@id='NotesAllText']"),"[Shown] button in task section");
     public Button hiddenButton = new Button(By.xpath("//span[@id='NotesAllText']"),"[Hidden] button in task section");
-    public Button sortByOrderBtn = new Button(By.xpath("//span[@id='SortMenu' and text()='Order']"),"[Sorted by Order] button in task section");
-    public Button sortByPriority = new Button(By.xpath("//span[@id='SortMenu' and text()='Priority']"),"[Sorted by Priority] button in task section");
-    //public Label sortedByPriorityValidationMessage = new Label(By.xpath("//div[@class='ui-state-highlight ui-corner-all']//strong[@id='InfoMessageHeader']"),"[Sorted By Priority] label in task section");
-    public Label sortedByPriorityValidationMessage = new Label(By.xpath("//span[@id='InfoMessageText' and text()='Sorted by Priority. You cannot rearrange items, you can only move them to different project']"),"[Sorted By Priority] label in task section");
     public CheckBox taskCheckbox = new CheckBox(By.id("ItemCheckBox"),"[Task Checkbox] in task section");
-    public Label itemDeletedValidationMessage = new Label(By.xpath("//span[@id='InfoMessageText' and text()='Item has been Deleted']"),"[Item has been Deleted] label in task section");
-
-
+    public Label itemDeletedValidationMessage = new Label(By.xpath("//span[@id='InfoMessageText' and text()='Item has been Deleted']"),"[Item has been Deleted] label in presentation page");
     public Button deleteAllBtn = new Button(By.xpath("//a[@id='DoneItemsDeleteLink']"),"[Delete All] button in task section");
 
     public Button getTask(String name) {
@@ -36,13 +29,9 @@ public class TaskSection {
     }
     public Boolean getNumberOfCharacters(String string) {
         int numberCount = string.length();
-        if (numberCount <= 250) {
+        if (numberCount <= 200) {
             return true;
         } else
             return false;
-    }
-    public Button optionDropDownIconTask(String name){
-        Button optionIconButton = new Button(By.xpath("//li[last()]//td[text()='" + name + "']//following-sibling::td//div[@style=\"display: block;\"]//img[@src=\"/Images/dropdown.png\"]"), "[optionIconButton] in Project Section");
-        return optionIconButton;
     }
 }

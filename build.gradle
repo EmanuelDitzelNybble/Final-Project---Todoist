@@ -20,20 +20,26 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testImplementation 'org.testng:testng:7.1.0'
+    implementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
     testImplementation 'io.qameta.allure:allure-junit5:2.19.0'
     runtimeOnly 'org.aspectj:aspectjweaver:1.9.9.1'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.1'
+    implementation 'org.junit.jupiter:junit-jupiter-params:5.9.1'
+    implementation 'com.github.automatedowl:allure-environment-writer:1.0.0'
+
 }
+
+
+// gradle clean test -PenvFile=qa.properties
 
 def envFile = !project.hasProperty("envFile")?"qa.properties":project.properties['envFile']
 test {
     systemProperty("envFile",envFile.toString())
     useJUnitPlatform()
 }
+//gradle clean -x test -PenvFile=qa.properties tags -PtestSuite=SmokeTest
 def testSuite = !project.hasProperty("testSuite")?"Acceptance":project.properties['testSuite']
 def tags = tasks.register("tags",Test) {
     systemProperty("envFile",envFile.toString())
@@ -44,6 +50,7 @@ def tags = tasks.register("tags",Test) {
 }
 
 
+// allure serve build\allure-results
 allure {
     version = '2.2.1'
     autoconfigure = true

@@ -17,7 +17,8 @@ public class RecycleBinTests extends TestBaseTodoly {
     @Epic("Recycle Bin")
     @Feature("Empty Bin")
     @Story("Recycle Bin Story")
-    @Tag("Regression Test")
+    @Tag("RecycleBin")
+    @Severity(SeverityLevel.MINOR)
     public void emptyRecycleBin() throws InterruptedException {
         String project = "New Project";
         String name = "userName"+ new Date().getTime();
@@ -50,15 +51,15 @@ public class RecycleBinTests extends TestBaseTodoly {
 
         taskSection.deleteAllBtn.click();
         Session.getInstance().getBrowser().switchTo().alert().accept();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         Assertions.assertFalse(taskSection.getCompletedTask(taskName).isControlDisplayed(),"Error: The completed task was not deleted");
-
 
         recycleBinPanel.recycleBin.click();
 
         recycleBinPanel.dropDownBtn.click();
         recycleBinPanel.emptyBinBtn.waitClickable();
         recycleBinPanel.emptyBinBtn.click();
+        Thread.sleep(2000);
         Assertions.assertFalse(taskSection.getCompletedTask(taskName).isControlDisplayed(),"Error: The task has not been deleted");
     }
 }

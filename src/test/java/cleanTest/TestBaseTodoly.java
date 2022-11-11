@@ -1,16 +1,18 @@
 package cleanTest;
 
+import com.google.common.collect.ImmutableMap;
 import io.qameta.allure.Attachment;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import singletonSession.Session;
 import todolyPages.*;
 import utils.GetProperties;
-
+import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
+@ExtendWith(TestResultExtension.class)
 public class TestBaseTodoly {
-
         public LoginModal loginModal = new LoginModal();
         public PresentationPage presentationPage = new PresentationPage();
         public SignUpModal signUpModal = new SignUpModal();
@@ -45,18 +47,27 @@ public class TestBaseTodoly {
         }
         return sb.toString();
     }
-        @BeforeEach
-        public void setup(){
-            Session.getInstance().getBrowser().get(GetProperties.getInstance().getHost());
-        }
-        @AfterEach
-        public void cleanup(){
-            attach();
-            Session.getInstance().closeBrowser();
-        }
-        @Attachment(value = "screenshot",type = "image/png")
-        private byte[] attach(){
-            return ((TakesScreenshot) Session.getInstance().getBrowser()).getScreenshotAs(OutputType.BYTES);
-        }
+
+    @BeforeEach
+    public void setup(){
+        allureEnvironmentWriter(
+                ImmutableMap.<String, String>builder()
+                        .put("Browser", GetProperties.getInstance().getBrowser())
+                        .put("URL", GetProperties.getInstance().getHost())
+                        .put("User", GetProperties.getInstance().getUser())
+                        .put("Pwd", GetProperties.getInstance().getPwd())
+                        .build(), System.getProperty("user.dir")
+                        + "/build/allure-results/");
+        Session.getInstance().getBrowser().get(GetProperties.getInstance().getHost());
+    }
+    @AfterEach
+    public void cleanup(){
+        Session.getInstance().closeBrowser();
+    }
+
+    @Attachment(value = "screenshot",type = "image/png")
+    public static byte[] attach(){
+        return ((TakesScreenshot) Session.getInstance().getBrowser()).getScreenshotAs(OutputType.BYTES);
+    }
 }
 

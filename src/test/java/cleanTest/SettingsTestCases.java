@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import singletonSession.Session;
 
 public class SettingsTestCases extends TestBaseTodoly {
@@ -21,7 +23,8 @@ public class SettingsTestCases extends TestBaseTodoly {
     @Epic("Account Settings")
     @Feature("Change Password")
     @Story("Account Settings Story")
-    @Tag("Regression Test")
+    @Tag("SettingsTests")
+    @Severity(SeverityLevel.CRITICAL)
     public void changePassword() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -53,7 +56,8 @@ public class SettingsTestCases extends TestBaseTodoly {
     @Epic("Account Settings")
     @Feature("Delete Account")
     @Story("Account Settings Story")
-    @Tag("Regression Test")
+    @Tag("SettingsTests")
+    @Severity(SeverityLevel.CRITICAL)
     public void deleteAccount() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -84,7 +88,7 @@ public class SettingsTestCases extends TestBaseTodoly {
     @Epic("Account Settings")
     @Feature("Change Password")
     @Story("Account Settings Story")
-    @Tag("Regression Test")
+    @Tag("Bugs")
     @Severity(SeverityLevel.NORMAL)
     public void newAndOldPwdEquals() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
@@ -108,7 +112,8 @@ public class SettingsTestCases extends TestBaseTodoly {
     @Epic("Account Settings")
     @Feature("Cancel Configuration Changes")
     @Story("Account Settings Story")
-    @Tag("Regression Test")
+    @Tag("SettingsTests")
+    @Severity(SeverityLevel.NORMAL)
     public void cancelSettingsChanges() throws InterruptedException {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
@@ -130,15 +135,21 @@ public class SettingsTestCases extends TestBaseTodoly {
         Assertions.assertNotEquals(settingsModal.email.getText(), mail, "");
     }
 
-    @Test
     @DisplayName("Verify that a user can change their name")
     @Description("This test is to verify that a user can change his name from settings modal")
     @Owner("Emanuel Ditzel")
     @Epic("Account Settings")
     @Feature("Change Name")
     @Story("Account Settings Story")
-    @Tag("Regression Test")
-    public void changeName() throws InterruptedException {
+    @Tag("SettingsTests")
+    @Severity(SeverityLevel.NORMAL)
+    @ParameterizedTest
+    @CsvSource({
+            "1", "20", "80", "450"
+    })
+    public void changeName(int numbers) throws InterruptedException {
+        newName = getAlphaNumericString(numbers);
+
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
