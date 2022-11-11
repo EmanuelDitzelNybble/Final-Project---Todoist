@@ -25,7 +25,7 @@ public class TaskTestCases extends TestBaseTodoly {
     @Story("Task Story")
     @Tag("TasksTests")
     @Severity(SeverityLevel.CRITICAL)
-        public void createTask() throws InterruptedException {
+        public void createTask() {
 
             presentationPage.signUpButton.waitClickable();
             presentationPage.signUpButton.click();
@@ -55,7 +55,7 @@ public class TaskTestCases extends TestBaseTodoly {
     @Story("Task Story")
     @Tag("TasksTests")
     @Severity(SeverityLevel.NORMAL)
-        public void deleteTask() throws InterruptedException {
+        public void deleteTask() {
             presentationPage.signUpButton.waitClickable();
             presentationPage.signUpButton.click();
 
@@ -91,7 +91,7 @@ public class TaskTestCases extends TestBaseTodoly {
     @Story("Task Story")
     @Tag("Bugs")
     @Severity(SeverityLevel.MINOR)
-        public void hiddenAndShownButtonsFunctionality() throws InterruptedException {
+        public void hiddenAndShownButtonsFunctionality() {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
@@ -126,7 +126,7 @@ public class TaskTestCases extends TestBaseTodoly {
     @Story("Task Story")
     @Tag("TasksTests")
     @Severity(SeverityLevel.NORMAL)
-        public void setPriority() throws InterruptedException {
+        public void setPriority() {
             presentationPage.signUpButton.waitClickable();
             presentationPage.signUpButton.click();
 
@@ -162,7 +162,7 @@ public class TaskTestCases extends TestBaseTodoly {
     @Story("Task Story")
     @Tag("Bugs")
     @Severity(SeverityLevel.BLOCKER)
-        public void limitOfCharactersTaskName() throws InterruptedException {
+        public void limitOfCharactersTaskName() {
             presentationPage.signUpButton.waitClickable();
             presentationPage.signUpButton.click();
 
@@ -192,7 +192,7 @@ public class TaskTestCases extends TestBaseTodoly {
     @Story("TasksTests")
     @Tag("Regression Test")
     @Severity(SeverityLevel.NORMAL)
-        public void verifyCompletedTask() throws InterruptedException {
+        public void verifyCompletedTask() {
             presentationPage.signUpButton.waitClickable();
             presentationPage.signUpButton.click();
 

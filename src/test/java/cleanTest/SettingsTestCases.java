@@ -25,7 +25,7 @@ public class SettingsTestCases extends TestBaseTodoly {
     @Story("Account Settings Story")
     @Tag("SettingsTests")
     @Severity(SeverityLevel.CRITICAL)
-    public void changePassword() throws InterruptedException {
+    public void changePassword() {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
@@ -58,7 +58,7 @@ public class SettingsTestCases extends TestBaseTodoly {
     @Story("Account Settings Story")
     @Tag("SettingsTests")
     @Severity(SeverityLevel.CRITICAL)
-    public void deleteAccount() throws InterruptedException {
+    public void deleteAccount() {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
@@ -90,7 +90,7 @@ public class SettingsTestCases extends TestBaseTodoly {
     @Story("Account Settings Story")
     @Tag("Bugs")
     @Severity(SeverityLevel.NORMAL)
-    public void newAndOldPwdEquals() throws InterruptedException {
+    public void newAndOldPwdEquals() {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
@@ -114,7 +114,7 @@ public class SettingsTestCases extends TestBaseTodoly {
     @Story("Account Settings Story")
     @Tag("SettingsTests")
     @Severity(SeverityLevel.NORMAL)
-    public void cancelSettingsChanges() throws InterruptedException {
+    public void cancelSettingsChanges() {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
@@ -147,7 +147,7 @@ public class SettingsTestCases extends TestBaseTodoly {
     @CsvSource({
             "1", "20", "80", "450"
     })
-    public void changeName(int numbers) throws InterruptedException {
+    public void changeName(int numbers) {
         newName = getAlphaNumericString(numbers);
 
         presentationPage.signUpButton.waitClickable();

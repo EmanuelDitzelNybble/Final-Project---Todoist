@@ -18,31 +18,32 @@ public class LoginTestCases extends TestBaseTodoly {
     @Story("Login")
     @Tag("LoginTests")
     @Severity(SeverityLevel.CRITICAL)
-    public void login() throws InterruptedException {
+    public void login() {
 
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();
         loginModal.login(mail, pwd);
         mainPage.mainPageLabel.waitVisibility();
-        Assertions.assertTrue(mainPage.mainPageLabel.isControlDisplayed(),"Login Error: The user could not log in.");
+        Assertions.assertTrue(navigationBar.logoutButton.isControlDisplayed(),"Login Error: The user could not log in.");
     }
     @Test
-    @DisplayName("Verify if a validation message is displayed when the user wants to reset the password")
-    @Description("This test case is to verify if a validation message is displayed when a user wants to reset his password")
+    @DisplayName("Verify if a validation message is displayed when the user wants to reset the password by entering invalid mail")
+    @Description("This test case is to verify if a validation message is displayed when a user wants to enter an invalid mail")
     @Owner("Emanuel Ditzel")
     @Epic("Login")
     @Feature("Authentication")
     @Story("Login")
     @Tag("LoginTests")
     @Severity(SeverityLevel.NORMAL)
-    public void resetPasswordValidationMsg() throws InterruptedException {
+    public void verifyValidationForInvalidMail()  {
+        String invalidMail = "DFDF@gmail";
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();
 
         loginModal.resetPasswordButton.waitClickable();
         loginModal.resetPasswordButton.click();
         loginModal.resetPwdEmailField.waitClickable();
-        loginModal.resetPwdEmailField.setText(mail);
+        loginModal.resetPwdEmailField.setText(invalidMail);
         loginModal.sendButton.click();
         loginModal.resetPwdValidationMessage.waitVisibility();
         Assertions.assertTrue(loginModal.resetPwdValidationMessage.isControlDisplayed(),"Error showing validation message");
@@ -57,12 +58,12 @@ public class LoginTestCases extends TestBaseTodoly {
     @Story("Login")
     @Tag("LoginTests")
     @Severity(SeverityLevel.CRITICAL)
-    public void loginWithoutEmail() throws InterruptedException {
+    public void loginWithoutEmail() {
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();
 
         loginModal.login("", pwd);
-        Assertions.assertTrue(mainPage.inboxButton.isControlDisplayed(),"Login Error: Please, complete [Email] field with valid email.");
+        Assertions.assertFalse(navigationBar.logoutButton.isControlDisplayed(),"Login Error: Please, complete [Email] field with valid email.");
     }
 
     @Test
@@ -74,12 +75,12 @@ public class LoginTestCases extends TestBaseTodoly {
     @Story("Login")
     @Tag("LoginTests")
     @Severity(SeverityLevel.CRITICAL)
-    public void loginWithoutPassword() throws InterruptedException {
+    public void loginWithoutPassword() {
         presentationPage.loginButton.waitClickable();
         presentationPage.loginButton.click();
 
         loginModal.login(mail, "");
-        Assertions.assertTrue(mainPage.inboxButton.isControlDisplayed(),"Login Error: Please, complete [Password] field with valid data.");
+        Assertions.assertFalse(navigationBar.logoutButton.isControlDisplayed(),"Login Error: Please, complete [Password] field with valid data.");
     }
 }
 

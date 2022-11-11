@@ -19,7 +19,7 @@ public class SignUpTestCases extends TestBaseTodoly {
     @Story("Registration")
     @Tag("SignUpTest")
     @Severity(SeverityLevel.CRITICAL)
-    public void register() throws InterruptedException {
+    public void register() {
         String email = "userEmail"+ new Date().getTime()+"@gmail.com";
 
         presentationPage.signUpButton.waitClickable();
@@ -38,7 +38,7 @@ public class SignUpTestCases extends TestBaseTodoly {
     @Story("Registration")
     @Tag("SignUpTest")
     @Severity(SeverityLevel.CRITICAL)
-    public void emptyFieldsSignUpModal() throws InterruptedException {
+    public void emptyFieldsSignUpModal() {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
@@ -55,7 +55,7 @@ public class SignUpTestCases extends TestBaseTodoly {
     @Story("Registration")
     @Tag("SignUpTest")
     @Severity(SeverityLevel.CRITICAL)
-    public void registerWithExistingAccount() throws InterruptedException {
+    public void registerWithExistingAccount() {
         String existingAccount = "emailexample@gmail.com";
 
         presentationPage.signUpButton.waitClickable();

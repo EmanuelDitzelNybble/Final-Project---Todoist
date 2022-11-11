@@ -10,12 +10,12 @@ public class ProjectPanel {
     public TextBox newProjectName = new TextBox(By.id("NewProjNameInput"),"Project Name textBox in project panel");
     public Button deleteBtn = new Button(By.xpath("//a[@id='ProjShareMenuDel']"),"[Delete] option button in project panel");
 
-    public Boolean getNumberOfCharacters(String string) {
-      int numberCount = string.length();
-      if (numberCount <= 160) {
-          return true;
-      } else
-          return false;
+    public Boolean verifyStringNoLongerThan(String string, int maxNumber) {
+        int numberCount = string.length();
+        if (numberCount <= maxNumber) {
+            return true;
+        } else
+            return false;
     }
     public Button optionDropDownIconProject(String name){
         Button optionIconButton = new Button(By.xpath("//li[last()]//td[text()='" + name + "']//following-sibling::td//div[@style=\"display: block;\"]//img[@src=\"/Images/dropdown.png\"]"), "[optionIconButton] in Project Section");

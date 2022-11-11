@@ -26,7 +26,7 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     @Story("Project Story")
     @Tag("ProjectTests")
     @Severity(SeverityLevel.CRITICAL)
-    public void createProject() throws InterruptedException {
+    public void createProject() {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
@@ -50,7 +50,7 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     @Story("Project Story")
     @Tag("Bug")
     @Severity(SeverityLevel.NORMAL)
-    public void duplicatedProjectName() throws InterruptedException {
+    public void duplicatedProjectName() {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
@@ -115,7 +115,7 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
     @Story("Project Story")
     @Tag("Bugs")
     @Severity(SeverityLevel.NORMAL)
-    public void limitOfCharactersProjectName() throws InterruptedException {
+    public void limitOfCharactersProjectName() {
         presentationPage.signUpButton.waitClickable();
         presentationPage.signUpButton.click();
 
@@ -127,6 +127,6 @@ public class ProjectPanelTestCases extends TestBaseTodoly {
         projectPanel.newProjectName.waitToElementToBePresent();
         projectPanel.newProjectName.setText(manyCharactersName);
         projectPanel.addBtn.click();
-        Assertions.assertTrue(projectPanel.getNumberOfCharacters(manyCharactersName),"Error creating project, too many characters");
+        Assertions.assertTrue(projectPanel.verifyStringNoLongerThan(manyCharactersName, 160),"Error creating project, too many characters");
     }
 }
